@@ -5,7 +5,6 @@ import {getUUID} from '../services/UUID';
 
 export const getEntries = async () => {
   const realm = await getRealm();
-
   const entries = realm.objects('Entry');
 
   console.log('getEntries :: entries ', JSON.stringify(entries));
@@ -32,7 +31,8 @@ export const saveEntry = async (value, entry = {}) => {
     console.log('saveEntry :: data: ', JSON.stringify(data));
   } catch (error) {
     console.error('saveEntry :: error on save object: ', JSON.stringify(data));
-    Alert.alert('Erro ao salvar os dados de lançamento.');
+    // Alert.alert('Erro ao salvar os dados de lançamento.');
+    Alert.alert(error.message);
   }
 
   return data;
@@ -47,7 +47,7 @@ export const deleteEntry = async (entry) => {
     });
   } catch (error) {
     console.error(
-      'saveEntry :: error on delete object: ',
+      'deleteEntry :: error on delete object: ',
       JSON.stringify(entry),
     );
     Alert.alert('Erro ao excluir este lançamento.');
