@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {View, TextInput, Button, StyleSheet} from 'react-native';
+import {View, Button, StyleSheet} from 'react-native';
 
 import BalanceLabel from '../../components/BalanceLabel';
 import NewEntryInput from '../NewEntry/NewEntryInput';
+import NewEntryCategoryPicker from './NewEntryCategoryPicker';
 
 import {saveEntry} from '../../services/Entries';
 import {deleteEntry} from '../../services/Entries';
@@ -51,8 +52,8 @@ const NewEntry = ({navigation}) => {
 
       <View>
         <NewEntryInput value={amount} onChangeValue={setAmount} />
+        <NewEntryCategoryPicker />
 
-        <TextInput style={styles.input} />
         <Button title="GPS" />
         <Button title="Camera" />
       </View>
