@@ -5,7 +5,7 @@ import {getUUID} from '../services/UUID';
 
 export const getEntries = async () => {
   const realm = await getRealm();
-  const entries = realm.objects('Entry');
+  const entries = realm.objects('Entry').sorted('entryAt', true);
 
   console.log('getEntries :: entries ', JSON.stringify(entries));
 
@@ -22,6 +22,7 @@ export const saveEntry = async (value, entry = {}) => {
         id: value.id || entry.id || getUUID(),
         amount: value.amount || entry.amount,
         entryAt: value.entryAt || entry.entryAt,
+        description: value.category.name,
         isInit: false,
         category: value.category || entry.category,
       };
@@ -32,13 +33,14 @@ export const saveEntry = async (value, entry = {}) => {
     console.log('saveEntry :: data: ', JSON.stringify(data));
   } catch (error) {
     console.error('saveEntry :: error on save object: ', JSON.stringify(data));
-    Alert.alert('Erro ao salvar os dados de lançamento.');
+    // Alert.alert('Erro ao salvar os dados de lançamento.');
+    console.log(error.message);
   }
 
   return data;
 };
 
-export const deleteEntry = async entry => {
+export const deleteEntry = async (entry) => {
   const realm = await getRealm();
 
   try {

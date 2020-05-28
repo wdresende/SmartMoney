@@ -31,7 +31,7 @@ const NewEntryCategoryPicker = ({debit, category, onChangeCategory}) => {
     console.log('NewEntryCategoryPicker :: useEffect');
   }, []);
 
-  const onCategoryPress = item => {
+  const onCategoryPress = (item) => {
     onChangeCategory(item);
     onClosePress();
   };
@@ -54,7 +54,7 @@ const NewEntryCategoryPicker = ({debit, category, onChangeCategory}) => {
         <View style={styles.modal}>
           <FlatList
             data={debit ? debitCategories : creditCategories}
-            keyExtractor={item => item.id}
+            keyExtractor={(item) => item.id}
             renderItem={({item}) => (
               <TouchableOpacity
                 style={styles.modalItem}
