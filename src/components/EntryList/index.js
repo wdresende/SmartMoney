@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {FlatList} from 'react-native';
 
 import Container from '../Core/Container';
+
 import EntryListItem from './EntryListItem';
 
 import {getEntries} from '../../services/Entries';
@@ -22,13 +23,13 @@ const EntryList = ({onEntryPress, onPressActionButton}) => {
 
   return (
     <Container
-      title="Últimos Lançamentos"
+      title="Últimos lançamentos"
       actionLabelText="Últimos 7 dias"
       actionButtonText="Ver mais"
       onPressActionButton={onPressActionButton}>
       <FlatList
-        keyExtractor={(item) => item.id}
         data={entries}
+        keyExtractor={item => item.id}
         renderItem={({item, index}) => (
           <EntryListItem
             entry={item}

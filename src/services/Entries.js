@@ -23,6 +23,7 @@ export const saveEntry = async (value, entry = {}) => {
         amount: value.amount || entry.amount,
         entryAt: value.entryAt || entry.entryAt,
         isInit: false,
+        category: value.category || entry.category,
       };
 
       realm.create('Entry', data, true);
@@ -31,14 +32,13 @@ export const saveEntry = async (value, entry = {}) => {
     console.log('saveEntry :: data: ', JSON.stringify(data));
   } catch (error) {
     console.error('saveEntry :: error on save object: ', JSON.stringify(data));
-    // Alert.alert('Erro ao salvar os dados de lançamento.');
-    Alert.alert(error.message);
+    Alert.alert('Erro ao salvar os dados de lançamento.');
   }
 
   return data;
 };
 
-export const deleteEntry = async (entry) => {
+export const deleteEntry = async entry => {
   const realm = await getRealm();
 
   try {

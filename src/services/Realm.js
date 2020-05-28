@@ -8,7 +8,7 @@ import {getDefaultCategories} from './Categories';
 export const getRealm = async () => {
   const realm = await Realm.open({
     schema: [CategorySchema, EntrySchema],
-    schemaVersion: 2,
+    schemaVersion: 4,
   });
 
   // dropDB(realm);
@@ -17,9 +17,8 @@ export const getRealm = async () => {
   return realm;
 };
 
-export const initDB = (realm) => {
+export const initDB = realm => {
   const categoriesLength = realm.objects('Category').length;
-
   console.log(`initDB :: categories length: ${categoriesLength}`);
 
   if (categoriesLength === 0) {
@@ -29,7 +28,7 @@ export const initDB = (realm) => {
 
     try {
       realm.write(() => {
-        categories.forEach((category) => {
+        categories.forEach(category => {
           console.log(
             `initDB :: creating category: ${JSON.stringify(category)}`,
           );
@@ -39,12 +38,12 @@ export const initDB = (realm) => {
       });
     } catch (error) {}
   } else {
-    console.log('initDB :: categories already existing.. Skypping');
+    console.log('initDB :: categories already existing... Skypping.');
   }
 };
 
-export const dropDB = (realm) => {
-  console.log('dropDB :: dropping DB...');
+export const dropDB = realm => {
+  console.log('dropDB :: dropping db...');
   realm.write(() => {
     realm.deleteAll();
   });

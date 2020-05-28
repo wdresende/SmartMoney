@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -23,7 +23,6 @@ const Container = ({
           {actionLabelText && (
             <Text style={styles.actionLabel}>{actionLabelText}</Text>
           )}
-
           {actionButtonText && (
             <TouchableOpacity
               style={styles.actionButton}

@@ -1,6 +1,6 @@
 const CategorySchema = {
   name: 'Category',
-  primarykey: 'id',
+  primaryKey: 'id',
   properties: {
     id: 'string',
     name: 'string',

@@ -10,7 +10,7 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
   const bulletLineY = isFirstItem ? 25 : 0;
   const bulletLineHeight = isLastItem ? 25 : 50;
   const showBulletLine = !(isFirstItem && isLastItem);
-  const bulletColor = Colors.white;
+  const bulletColor = entry.category.color || Colors.white;
 
   return (
     <TouchableOpacity
@@ -33,7 +33,7 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
             <Circle
               cx="10"
               cy="25"
-              r={8}
+              r="8"
               stroke={Colors.background}
               strokeWidth="1.5"
               fill={bulletColor}
@@ -51,7 +51,7 @@ const EntryListItem = ({entry, isFirstItem, isLastItem, onEntryPress}) => {
             {entry.address && (
               <>
                 <Icon style={styles.addressIcon} name="person-pin" size={12} />
-                <Text style={styles.addresstext}>{entry.address}</Text>
+                <Text style={styles.addressText}>{entry.address}</Text>
               </>
             )}
           </View>
@@ -75,6 +75,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  descriptionText: {
+    fontSize: 14,
+    color: Colors.white,
+  },
   details: {
     flexDirection: 'row',
   },
@@ -83,16 +87,17 @@ const styles = StyleSheet.create({
     marginTop: 2,
     marginRight: 2,
   },
-  addressIcon: {
-    color: Colors.metal,
-    marginTop: 2,
-    marginLeft: 5,
-  },
   entryAtText: {
     fontSize: 12,
     color: Colors.metal,
   },
-  addresstext: {
+  addressIcon: {
+    color: Colors.metal,
+    marginTop: 2,
+    marginRight: 2,
+    marginLeft: 5,
+  },
+  addressText: {
     fontSize: 12,
     color: Colors.metal,
   },
@@ -102,10 +107,6 @@ const styles = StyleSheet.create({
   amountText: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: Colors.white,
-  },
-  descriptionText: {
-    fontSize: 14,
     color: Colors.white,
   },
 });

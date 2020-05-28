@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   TouchableOpacity,
@@ -8,24 +8,37 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import {getAllCategories} from '../../../services/Categories';
+import {
+  getDebitCategories,
+  getCreditCategories,
+} from '../../../services/Categories';
 
 import Colors from '../../../styles/Colors';
 
-const NewEntryCategoryPicker = () => {
+const NewEntryCategoryPicker = ({debit, category, onChangeCategory}) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [allCategories, setAllCategories] = useState([]);
+  const [debitCategories, setDebitCategories] = useState([]);
+  const [creditCategories, setCreditCategories] = useState([]);
 
   useEffect(() => {
     async function loadCategories() {
-      const data = await getAllCategories();
-      setAllCategories(data);
+      setDebitCategories(await getDebitCategories());
+      setCreditCategories(await getCreditCategories());
     }
 
     loadCategories();
 
     console.log('NewEntryCategoryPicker :: useEffect');
   }, []);
+
+  const onCategoryPress = item => {
+    onChangeCategory(item);
+    onClosePress();
+  };
+
+  const onClosePress = () => {
+    setModalVisible(false);
+  };
 
   return (
     <View>
@@ -34,24 +47,26 @@ const NewEntryCategoryPicker = () => {
         onPress={() => {
           setModalVisible(true);
         }}>
-        <Text style={styles.pickerButtonText}>Alimentação</Text>
+        <Text style={styles.pickerButtonText}>{category.name}</Text>
       </TouchableOpacity>
+
       <Modal animationType="slide" transparent={false} visible={modalVisible}>
         <View style={styles.modal}>
           <FlatList
-            data={allCategories}
-            keyExtractor={(item) => item.id}
+            data={debit ? debitCategories : creditCategories}
+            keyExtractor={item => item.id}
             renderItem={({item}) => (
-              <TouchableOpacity style={styles.modalItem}>
+              <TouchableOpacity
+                style={styles.modalItem}
+                onPress={() => onCategoryPress(item)}>
                 <Text style={[styles.modalItemText, {color: item.color}]}>
                   {item.name}
                 </Text>
               </TouchableOpacity>
             )}
           />
-          <TouchableOpacity
-            onPress={() => setModalVisible(false)}
-            style={styles.closeButton}>
+
+          <TouchableOpacity style={styles.closeButton} onPress={onClosePress}>
             <Text style={styles.closeButtonText}>Fechar</Text>
           </TouchableOpacity>
         </View>
@@ -93,7 +108,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: Colors.background,
     borderColor: Colors.green,
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 15,
     marginVertical: 10,
     marginHorizontal: 20,

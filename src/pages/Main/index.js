@@ -9,11 +9,11 @@ import Colors from '../../styles/Colors';
 
 const Main = ({navigation}) => {
   return (
-    <View style={styles.conatiner}>
+    <View style={styles.container}>
       <BalancePanel onNewEntryPress={() => navigation.navigate('NewEntry')} />
       <EntrySummary onPressActionButton={() => navigation.navigate('Report')} />
       <EntryList
-        onEntryPress={(entry) =>
+        onEntryPress={entry =>
           navigation.navigate('NewEntry', {
             entry: entry,
           })
@@ -25,7 +25,7 @@ const Main = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  conatiner: {
+  container: {
     flex: 1,
     backgroundColor: Colors.background,
   },
