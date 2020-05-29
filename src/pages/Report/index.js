@@ -33,7 +33,7 @@ const Report = ({navigation}) => {
     name: 'Todas Categorias',
   });
 
-  const onRelativeDaysPress = item => {
+  const onRelativeDaysPress = (item) => {
     setRelativeDays(item);
     onRelativeDaysClosePress();
   };
