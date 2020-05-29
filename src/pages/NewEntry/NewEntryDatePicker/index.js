@@ -9,7 +9,7 @@ import Colors from '../../../styles/Colors';
 const NewEntryDatePicker = ({value, onChange}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
-  const onChangeValue = (date) => {
+  const onChangeValue = date => {
     onChange(date);
     onCancel();
   };

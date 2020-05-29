@@ -17,7 +17,7 @@ export const getRealm = async () => {
   return realm;
 };
 
-export const initDB = (realm) => {
+export const initDB = realm => {
   const categoriesLength = realm.objects('Category').length;
   console.log(`initDB :: categories length: ${categoriesLength}`);
 
@@ -28,7 +28,7 @@ export const initDB = (realm) => {
 
     try {
       realm.write(() => {
-        categories.forEach((category) => {
+        categories.forEach(category => {
           console.log(
             `initDB :: creating category: ${JSON.stringify(category)}`,
           );
@@ -42,7 +42,7 @@ export const initDB = (realm) => {
   }
 };
 
-export const dropDB = (realm) => {
+export const dropDB = realm => {
   console.log('dropDB :: dropping db...');
   realm.write(() => {
     realm.deleteAll();
