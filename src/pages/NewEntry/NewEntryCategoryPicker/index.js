@@ -8,7 +8,7 @@ import Colors from '../../../styles/Colors';
 const NewEntryCategoryPicker = ({debit, category, onChangeCategory}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
-  const onCategoryPress = (item) => {
+  const onCategoryPress = item => {
     onChangeCategory(item);
     onClosePress();
   };

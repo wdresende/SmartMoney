@@ -18,7 +18,7 @@ const EntryList = ({days = 7, category, onEntryPress, onPressActionButton}) => {
       onPressActionButton={onPressActionButton}>
       <FlatList
         data={entries}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
         renderItem={({item, index}) => (
           <EntryListItem
             entry={item}

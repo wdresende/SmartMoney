@@ -29,7 +29,7 @@ const useCategories = () => {
       setAllCategories(data);
     };
 
-    const loadInitCategories = async () => {
+    const loadInitCategory = async () => {
       const data = await getInitCategories();
       setInitCategories(data);
     };
@@ -37,7 +37,7 @@ const useCategories = () => {
     loadDebitCategories();
     loadCreditCategories();
     loadAllCategories();
-    loadInitCategories();
+    loadInitCategory();
   }, []);
 
   return [debitCategories, creditCategories, allCategories, initCategories];

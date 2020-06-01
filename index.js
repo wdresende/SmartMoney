@@ -1,3 +1,9 @@
+import {YellowBox} from 'react-native';
+
+YellowBox.ignoreWarnings([
+  'VirtualizedLists should never be nested', // TODO: Remover quando atualizar a versão
+]);
+
 /**
  * @format
  */

@@ -28,7 +28,7 @@ const CategoryModal = ({categoryType, isVisible, onConfirm, onCancel}) => {
               ? debitCategories
               : creditCategories
           }
-          keyExtractor={(item) => item.id}
+          keyExtractor={item => item.id}
           renderItem={({item}) => (
             <TouchableOpacity
               style={styles.modalItem}
