@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {
   View,
+  StatusBar,
   TouchableOpacity,
   Text,
   ScrollView,
@@ -53,6 +54,7 @@ const Report = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor={Colors.background} />
       <BalanceLabel />
 
       <View style={styles.filtersContainer}>
