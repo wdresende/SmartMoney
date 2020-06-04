@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'SmartMoney' do
-  # Pods for SmartMoney
+target 'smartMoney' do
+  # Pods for smartMoney
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -81,7 +81,7 @@ target 'SmartMoney' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  target 'SmartMoneyTests' do
+  target 'smartMoneyTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -98,10 +98,10 @@ target 'SmartMoney' do
   end
 end
 
-target 'SmartMoney-tvOS' do
-  # Pods for SmartMoney-tvOS
+target 'smartMoney-tvOS' do
+  # Pods for smartMoney-tvOS
 
-  target 'SmartMoney-tvOSTests' do
+  target 'smartMoney-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

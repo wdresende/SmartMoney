@@ -1,5 +1,5 @@
 {
-  "name": "SmartMoney",
+  "name": "smartMoney",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -13,6 +13,9 @@
     "@react-native-community/async-storage": "^1.11.0",
     "@react-native-community/datetimepicker": "^2.4.0",
     "@react-native-community/geolocation": "^2.0.2",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/native": "^5.5.0",
+    "@react-navigation/stack": "^5.4.1",
     "lodash": "^4.17.15",
     "moment": "^2.26.0",
     "react": "16.11.0",
@@ -25,10 +28,11 @@
     "react-native-masked-text": "^1.13.0",
     "react-native-modal-datetime-picker": "^8.7.0",
     "react-native-reanimated": "^1.9.0",
+    "react-native-safe-area-context": "^3.0.2",
+    "react-native-screens": "^2.8.0",
     "react-native-svg": "^12.1.0",
     "react-native-svg-charts": "^5.4.0",
     "react-native-vector-icons": "^6.6.0",
-    "react-navigation": "^4.3.9",
     "react-number-format": "^4.4.1",
     "realm": "^6.0.1",
     "uuid": "^8.1.0"
@@ -36,7 +40,6 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/runtime": "^7.9.6",
-    "@bam.tech/react-native-make": "^3.0.0",
     "@react-native-community/eslint-config": "^1.1.0",
     "@types/uuid": "^8.0.0",
     "babel-jest": "^26.0.1",

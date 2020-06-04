@@ -1,4 +1,4 @@
-package br.com.diegoresende.smartmoney_course;
+package com.smartmoney;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "SmartMoney";
+    return "smartMoney";
   }
 }
