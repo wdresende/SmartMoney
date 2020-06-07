@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "641513023038",
+    "firebase_url": "https://smartmoney-59bea.firebaseio.com",
+    "project_id": "smartmoney-59bea",
+    "storage_bucket": "smartmoney-59bea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641513023038:android:049bbe22ca1e6d3b53136f",
+        "android_client_info": {
+          "package_name": "com.smartmoney"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641513023038-2eko18sq4504ju2s1kgs0uescdk9ovsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3qDrSoTRCZKTP4r9tEuTnEyaRynGHNQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641513023038-2eko18sq4504ju2s1kgs0uescdk9ovsq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
