@@ -2,8 +2,8 @@ import {Alert} from 'react-native';
 
 import moment from '../vendors/moment';
 
-import {getRealm} from './Realm';
-import {getUUID} from '../services/UUID';
+// import {getRealm} from './Realm';
+// import {getUUID} from '../services/UUID';
 import firestore from '@react-native-firebase/firestore';
 
 export const getEntries = async (days, category) => {
