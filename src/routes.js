@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import { isInitialized } from './services/Welcome';
+import {isLogged} from './services/Auth';
 
 const Stack = createStackNavigator();
 
@@ -41,9 +42,9 @@ const Routes = () => {
         setInitiated(true);
       }
 
-      // if (await isLogged()) {
-      //   setLogged(true);
-      // }
+      if (await isLogged()) {
+        setLogged(true);
+      }
 
       setIsLoading(false);
     }

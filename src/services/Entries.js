@@ -6,7 +6,10 @@ import moment from '../vendors/moment';
 // import {getUUID} from '../services/UUID';
 import firestore from '@react-native-firebase/firestore';
 
+import {getUserAuth} from './Auth';
+
 export const getEntries = async (days, category) => {
+  const userAuth = await getUserAuth();
   let querySnapshot;
 
   if (days > 0) {
@@ -14,12 +17,14 @@ export const getEntries = async (days, category) => {
 
     querySnapshot = await firestore()
       .collection('entries')
+      .where('userId', '==', userAuth)
       .orderBy('entryAt')
       .startAt(date)
       .get();
   } else {
     querySnapshot = await firestore()
       .collection('entries')
+      .where('userId', '==', userAuth)
       .orderBy('entryAt')
       .get();
   }
@@ -36,7 +41,7 @@ export const getEntries = async (days, category) => {
 };
 
 export const addEntry = async (entry) => {
-  // const realm = await getRealm();
+  const userAuth = await getUserAuth();
   let data = {};
 
   try {
@@ -50,6 +55,7 @@ export const addEntry = async (entry) => {
       photo: entry.photo,
       isInit: entry.isInit || false,
       category: entry.category,
+      userId: userAuth,
     };
 
     await firestore().collection('entries').add(data);
@@ -66,9 +72,9 @@ export const addEntry = async (entry) => {
 };
 
 export const updateEntry = async (entry) => {
-  console.log('updateEntry :: entry objects: ' + JSON.stringify(entry));
-
+  const userAuth = await getUserAuth();
   let data = {};
+
   try {
     data = {
       amount: entry.amount,
@@ -80,6 +86,7 @@ export const updateEntry = async (entry) => {
       photo: entry.photo,
       isInit: entry.isInit || false,
       category: entry.category,
+      userId: userAuth,
     };
 
     await firestore().collection('entries').doc(entry.id).update(data);

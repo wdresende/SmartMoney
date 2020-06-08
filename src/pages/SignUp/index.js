@@ -8,6 +8,8 @@ import {
   StyleSheet,
 } from 'react-native';
 
+import {signUp as register} from '../../services/Auth';
+
 import logo from '../../assets/logo-white.png';
 
 import Colors from '../../styles/Colors';
@@ -17,6 +19,28 @@ const SignUp = ({navigation}) => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const onSubmit = async () => {
+    if (loading === false) {
+      setLoading(true);
+
+      const {registerSuccess} = await register({
+        email,
+        password,
+        name,
+      });
+
+      if (registerSuccess === true) {
+        navigation.reset({
+          index: 0,
+          key: null,
+          routes: [{name: 'Welcome'}],
+        });
+      } else {
+        setLoading(false);
+      }
+    }
+  };
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.conatiner}>
@@ -59,7 +83,7 @@ const SignUp = ({navigation}) => {
         }}
       />
 
-      <TouchableOpacity onPress={() => {}} style={styles.button}>
+      <TouchableOpacity onPress={onSubmit} style={styles.button}>
         <Text style={styles.buttonText}>
           {loading ? 'Carregando...' : 'Criar conta'}
         </Text>
@@ -70,7 +94,9 @@ const SignUp = ({navigation}) => {
           navigation.navigate('SignIn');
         }}
         style={styles.buttonSignUp}>
-        <Text style={styles.buttonSignUpText}>Fazer login</Text>
+        <Text style={styles.buttonSignUpText}>
+          Já tem uma conta? Então faça login
+        </Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
   );
