@@ -40,3 +40,17 @@ export const signUp = async (data) => {
     return {registerSuccess: false};
   }
 };
+
+export const signIn = async (data) => {
+  const {email, password} = data;
+
+  try {
+    const userInfos = await auth().signInWithEmailAndPassword(email, password);
+    setUserAuth(userInfos.user.uid);
+    
+    return {loginSuccess: true};
+  } catch (e) {
+    Alert.alert('Erro ao tentar entrar', e.message);
+    return {loginSuccess: false};
+  }
+}

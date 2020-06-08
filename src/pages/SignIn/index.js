@@ -8,6 +8,9 @@ import {
   StyleSheet,
 } from 'react-native';
 
+import {signIn as login} from '../../services/Auth';
+import {isInitialized} from '../../services/Welcome';
+
 import logo from '../../assets/logo-white.png';
 
 import Colors from '../../styles/Colors';
@@ -16,6 +19,23 @@ const SignIn = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const onSubmit = async () => {
+    if (loading === false) {
+      setLoading(true);
+      const {loginSuccess} = await login({email, password});
+      if (loginSuccess === true) {
+        const initiated = await isInitialized();
+        navigation.reset({
+          index: 0,
+          key: null,
+          routes: [{name: initiated ? 'Main' : 'Welcome'}],
+        });
+      } else {
+        setLoading(false);
+      }
+    }
+  };
 
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.conatiner}>
@@ -46,7 +66,7 @@ const SignIn = ({navigation}) => {
         }}
       />
 
-      <TouchableOpacity onPress={() => {}} style={styles.button}>
+      <TouchableOpacity onPress={onSubmit} style={styles.button}>
         <Text style={styles.buttonText}>
           {loading ? 'Carregando...' : 'Entrar'}
         </Text>
