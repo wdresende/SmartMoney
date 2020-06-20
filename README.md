@@ -36,7 +36,7 @@ Após realizado os passos anterior o aplicativo deve iniciar automaticamente em 
 
 ## Utilizando o aplicativo:
 
-- O aplicativo inicia pedindo seu login e senha, caso não possua um cadastro o usuário pode faze-lo:
+- O aplicativo inicia pedindo seu login e senha, caso não possua um cadastro o usuário pode faze-lo: <br/>
 <a href="https://ibb.co/thZGwqb"><img src="https://i.ibb.co/yRh9m68/20200620-191553.jpg" alt="20200620-191553" border="0" height="400"></a>
 <a href="https://ibb.co/HV3pyQP"><img src="https://i.ibb.co/FKCq1tY/20200620-191610.jpg" alt="20200620-191610" border="0" height="400"></a>
 
@@ -46,7 +46,7 @@ Após realizado os passos anterior o aplicativo deve iniciar automaticamente em 
 
 - É possível adicionar um débito ou um crédito que sera atualizado no saldo principal e exibido em uma lista na tela 
 principal. É preciso escolher uma função de débito ou crédito, uma categoria correspondente e o valor. Imagem, data e endereço
-são opcionais. Além de depois de cadastrado é possível atualizar ou excluir um valor:
+são opcionais. Além de depois de cadastrado é possível atualizar ou excluir um valor: <br/>
 <a href="https://ibb.co/2nYv4R3"><img src="https://i.ibb.co/X2k7R6x/20200620-191824.jpg" alt="20200620-191824" border="0" height="400"></a>
 <a href="https://ibb.co/QJpyKgm"><img src="https://i.ibb.co/tHQVJGC/20200620-191808.jpg" alt="20200620-191808" border="0" height="400"></a>
 <a href="https://ibb.co/qCCgrhp"><img src="https://i.ibb.co/RNN6Dtc/20200620-191752.jpg" alt="20200620-191752" border="0" height="400"></a>
